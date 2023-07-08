@@ -1,12 +1,10 @@
 import "./App.css";
 import React from "react";
-import MainPage from "./MainPage";
-import TvShowPage from "./TvShowPage";
+import MainApp from "./MainApp";
 function App() {
   return (
     <div>
-      <MainPage />
-      {/* <TvShowPage /> */}
+      <MainApp />
     </div>
   );
 }

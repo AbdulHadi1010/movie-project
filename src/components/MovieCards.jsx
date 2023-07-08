@@ -1,23 +1,23 @@
 import React from "react";
 import starImg from "../assets/star-image.png";
 export default function MovieCards({ props }) {
-  const ImgLink = `https://image.tmdb.org/t/p/w300`;
+  const ImgLink = `https://image.tmdb.org/t/p/original`;
   return (
-    <div className=" max-w-sm rounded overflow-hidden shadow-lg hover:cursor-pointer">
+    <div className="ml-4 pb-4 rounded hover:cursor-pointer w-full shrink-0 w-1/4 mr-4">
       <img
-        src={ImgLink + props.poster_path}
+        src={ImgLink + props.backdrop_path}
         alt="Poster"
-        className="w-full rounded "
+        className="rounded"
       />
-      <div className="font-bold text-md text-left py-4 pl-2 overflow-hidden whitespace-nowrap	">
+      <div className="font-bold text-xs text-left py-4 pl-2">
         {props.original_title}
       </div>
       <div className="flex">
-        <div className="w-4 bottom-0 pt-1">
+        <div className="w-4 pt-0.5">
           <img src={starImg} />
         </div>
-        <div className="font-bold pl-2">{props.vote_average}</div>
-        <div className="pl-2 ">
+        <div className="font-bold pl-2 text-sm">{props.vote_average}</div>
+        <div className="pl-2 text-sm">
           <span>(</span>
           {props.vote_count}
           <span>)</span>
