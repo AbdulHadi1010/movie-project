@@ -9,11 +9,11 @@ export default function MovieCards({ props }) {
         alt="Poster"
         className="rounded"
       />
-      <div className="font-bold text-xs text-left py-4 pl-2">
+      <div className="font-bold text-xl text-left py-4 pl-2">
         {props.original_title}
       </div>
-      <div className="flex">
-        <div className="w-4 pt-0.5">
+      <div className="flex pl-2">
+        <div className="w-4 pt-0.5 ">
           <img src={starImg} />
         </div>
         <div className="font-bold pl-2 text-sm">{props.vote_average}</div>
