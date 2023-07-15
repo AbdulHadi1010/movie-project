@@ -3,7 +3,7 @@ import starImg from "../assets/star-image.png";
 export default function MovieCards({ props }) {
   const ImgLink = `https://image.tmdb.org/t/p/original`;
   return (
-    <div className="w-1/6 ml-4 pb-4 rounded hover:cursor-pointer shrink-0  mr-4">
+    <div className="w-1/5 p-4 rounded hover:cursor-pointer shrink-0">
       <img
         src={ImgLink + props.backdrop_path}
         alt="Poster"

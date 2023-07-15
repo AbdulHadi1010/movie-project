@@ -7,8 +7,8 @@ import "./MainApp.css";
 export default function MainApp() {
   return (
     <div>
-      <div className="max-w-full ">
-        <div className="w-full flex p-6 fixed" id="Linear-Gradient">
+      <div className="max-w-screen overflow-x-hidden">
+        <div className="w-full flex p-6 absolute" id="Linear-Gradient">
           <text className="text-white text-2xl px-8 font-semibold">
             Website Name
           </text>
@@ -32,10 +32,14 @@ export default function MainApp() {
             </div>
           </div>
         </div>
-        <div className="max-w-full absolute top-3/4 bg-black/95">
-          <MainPage />
-        </div>
         <img src={wallpaper} />
+      </div>
+
+      <div className="w-full absolute top-3/4 bg-black/95 overflow-x-scroll">
+        <div className="text-white text-3xl py-2 px-4 font-bold text-start">
+          Just Release
+        </div>
+        <MainPage />
       </div>
     </div>
   );
