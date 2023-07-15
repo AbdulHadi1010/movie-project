@@ -30,7 +30,7 @@ export default function MainPage() {
   }, []);
 
   return (
-    <div className=" flex flex-nowrap overflow-auto w-screen gap-4">
+    <div className=" flex flex-wrap w-screen gap-4">
       {isLoadiing &&
         Mdata.map((item) => {
           return <MovieCards props={item} key={item.id} />;
