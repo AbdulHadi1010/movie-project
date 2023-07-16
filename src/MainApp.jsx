@@ -6,33 +6,14 @@ import "./MainApp.css";
 
 export default function MainApp() {
   const scrl = useRef(null);
-  const [scrollX, setscrollX] = useState(0);
-  const [scrolEnd, setscrolEnd] = useState(false);
+  const [scrollX, setscrollX] = useState(1);
 
-  //Slide click
   const slide = (shift) => {
     scrl.current.scrollLeft += shift;
     setscrollX(scrollX + shift);
-
-    if (
-      Math.floor(scrl.current.scrollWidth - scrl.current.scrollLeft) <=
-      scrl.current.offsetWidth
-    ) {
-      setscrolEnd(true);
-    } else {
-      setscrolEnd(false);
-    }
   };
   const scrollCheck = () => {
     setscrollX(scrl.current.scrollLeft);
-    if (
-      Math.floor(scrl.current.scrollWidth - scrl.current.scrollLeft) <=
-      scrl.current.offsetWidth
-    ) {
-      setscrolEnd(true);
-    } else {
-      setscrolEnd(false);
-    }
   };
 
   return (
@@ -65,27 +46,25 @@ export default function MainApp() {
         <img src={wallpaper} />
       </div>
 
-      {/* <div className="flex  whitespace-nowrap"> */}
-      {/* {scrollX !== 0 && (
-          <button className="" onClick={() => slide(-50)}>
-            ABCD
-          </button>
-        )} */}
-      <div className="w-full absolute top-3/4 bg-black/[0.95] overflow-x-auto">
-        <div className="text-white text-3xl py-2 px-4 font-bold text-start">
-          Just Release
-        </div>
-        {/* <ul ref={scrl} onScroll={scrollCheck}> */}
-        <MainPage />
-        {/* </ul> */}
-      </div>
+      <div className="w-full flex absolute bg-black/[0.95] top-3/4">
+        <button onClick={() => slide(-150)} className="px-4">
+          ⬅️
+        </button>
 
-      {/* {!scrolEnd && (
-          <button className="" onClick={() => slide(+50)}>
-            EFG
-          </button>
-        )} */}
-      {/* </div> */}
+        <div
+          ref={scrl}
+          onScroll={scrollCheck}
+          className="w-screen overflow-x-hidden "
+        >
+          <div className="text-white text-3xl py-2 px-4 font-bold text-start">
+            Just Release
+          </div>
+          <MainPage />
+        </div>
+        <button className="px-4" onClick={() => slide(+150)}>
+          ➡️
+        </button>
+      </div>
     </div>
   );
 }
