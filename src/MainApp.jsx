@@ -1,21 +1,11 @@
 import React, { useRef, useState } from "react";
 import wallpaper from "./assets/wallpaper.jpg";
-import MainPage from "./MainPage";
-import TvShowPage from "./TvShowPage";
+import MainPageNavigation from "./MainPageNavigation";
+import MainPagePagination from "./MainPagePagination";
+import MainPageAutoPlay from "./MainPageAutoPlay";
 import "./MainApp.css";
 
 export default function MainApp() {
-  const scrl = useRef(null);
-  const [scrollX, setscrollX] = useState(1);
-
-  const slide = (shift) => {
-    scrl.current.scrollLeft += shift;
-    setscrollX(scrollX + shift);
-  };
-  const scrollCheck = () => {
-    setscrollX(scrl.current.scrollLeft);
-  };
-
   return (
     <div>
       <div className="max-w-screen overflow-x-hidden">
@@ -45,25 +35,26 @@ export default function MainApp() {
         </div>
         <img src={wallpaper} />
       </div>
-
-      <div className="w-full flex absolute bg-black/[0.95] top-3/4">
-        <button onClick={() => slide(-150)} className="px-4">
-          ⬅️
-        </button>
-
-        <div
-          ref={scrl}
-          onScroll={scrollCheck}
-          className="w-screen overflow-x-hidden "
-        >
-          <div className="text-white text-3xl py-2 px-4 font-bold text-start">
-            Just Release
-          </div>
-          <MainPage props={"https://api.themoviedb.org/3/discover/movie"} />
+      <div className="top-3/4 absolute w-screen bg-[#242424]">
+        <div className="text-white text-3xl py-2 px-8 font-bold text-start">
+          Top Rated
         </div>
-        <button className="px-4" onClick={() => slide(+150)}>
-          ➡️
-        </button>
+        <MainPageAutoPlay
+          apilink={"https://api.themoviedb.org/3/movie/top_rated"}
+        />
+        <div className="text-white text-3xl py-2 px-8 font-bold text-start">
+          Just Release
+        </div>
+        <MainPageNavigation
+          apilink={"https://api.themoviedb.org/3/discover/movie"}
+        />
+
+        <div className="text-white text-3xl py-2 px-8 font-bold text-start">
+          Upcoming
+        </div>
+        <MainPagePagination
+          props={"https://api.themoviedb.org/3/movie/upcoming"}
+        />
       </div>
     </div>
   );
