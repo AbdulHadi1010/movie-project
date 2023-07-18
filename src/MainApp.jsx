@@ -4,6 +4,7 @@ import MainPageNavigation from "./MainPageNavigation";
 import MainPagePagination from "./MainPagePagination";
 import MainPageAutoPlay from "./MainPageAutoPlay";
 import "./MainApp.css";
+import { Navigation } from "swiper/modules";
 
 export default function MainApp() {
   return (
@@ -35,7 +36,7 @@ export default function MainApp() {
         </div>
         <img src={wallpaper} />
       </div>
-      <div className="top-3/4 absolute w-screen bg-[#242424]">
+      <div className="top-3/4 absolute w-full bg-[#242424]">
         <div className="text-white text-3xl py-2 px-8 font-bold text-start">
           Top Rated
         </div>

@@ -24,7 +24,7 @@ export default function MainPageAutoPlay(props) {
       await axios
         .request(config)
         .then((response) => {
-          console.log(JSON.stringify(response.data));
+          // console.log(JSON.stringify(response.data));
           setMdata(response.data.results);
           setisLoadiing(true);
         })
