@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import MovieCards from "./components/MovieCards";
+import MovieCardsWide from "./components/MovieCardsWide";
 import axios from "axios";
 import { Swiper } from "swiper/react";
 import { SwiperSlide } from "swiper/react";
@@ -8,6 +8,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 import { Navigation } from "swiper/modules";
+import MovieCardsLong from "./components/MovieCardsLong";
 
 export default function MainPageNavigation(props) {
   const [Mdata, setMdata] = useState(null);
@@ -35,19 +36,17 @@ export default function MainPageNavigation(props) {
 
     fetchData();
   }, []);
-console.log(props.transition);
   return (
     <Swiper
-      spaceBetween={50}
-      slidesPerView={3}
+      slidesPerView={5}
       navigation={true}
       modules={[Navigation]}
     >
       {isLoadiing &&
         Mdata.map((item) => {
           return (
-            <SwiperSlide>
-              <MovieCards props={item} key={item.id} />
+            <SwiperSlide >
+              <MovieCardsLong props={item} key={item.id} />
             </SwiperSlide>
           );
         })}

@@ -1,6 +1,6 @@
 import React from "react";
 import starImg from "../assets/star-image.png";
-export default function MovieCards({ props }) {
+export default function MovieCardsWide({ props }) {
   const ImgLink = `https://image.tmdb.org/t/p/original`;
   return (
     <div className="p-8 rounded hover:cursor-pointer shrink-0">

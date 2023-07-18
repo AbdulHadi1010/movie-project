@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import MovieCards from "./components/MovieCards";
+import MovieCardsWide from "./components/MovieCardsWide";
 import axios from "axios";
 import { Swiper } from "swiper/react";
 import { SwiperSlide } from "swiper/react";
@@ -7,7 +7,7 @@ import { SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 
-import { Pagination } from "swiper/modules";
+import {Autoplay, Pagination } from "swiper/modules";
 
 export default function MainPagePagination(props) {
   const [Mdata, setMdata] = useState(null);
@@ -39,16 +39,21 @@ export default function MainPagePagination(props) {
 
   return (
     <Swiper
-      spaceBetween={50}
-      slidesPerView={3}
-      pagination={true}
-      modules={[Pagination]}
+      slidesPerView={4}
+      autoplay={{
+        delay: 2000,
+        disableOnInteraction: false,
+      }}
+      pagination={{
+        clickable: true,
+      }}
+      modules={[Autoplay, Pagination]}
     >
       {isLoadiing &&
         Mdata.map((item) => {
           return (
             <SwiperSlide>
-              <MovieCards props={item} key={item.id} />
+              <MovieCardsWide props={item} key={item.id} />
             </SwiperSlide>
           );
         })}

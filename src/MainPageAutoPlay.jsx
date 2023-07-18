@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import MovieCards from "./components/MovieCards";
+import MovieCardsWide from "./components/MovieCardsWide";
 import axios from "axios";
 import { Swiper } from "swiper/react";
 import { SwiperSlide } from "swiper/react";
@@ -38,8 +38,7 @@ export default function MainPageAutoPlay(props) {
 
   return (
     <Swiper
-      spaceBetween={50}
-      slidesPerView={3}
+      slidesPerView={4}
       autoplay={{
         delay: 2500,
         disableOnInteraction: false,
@@ -47,14 +46,13 @@ export default function MainPageAutoPlay(props) {
       pagination={{
         clickable: true,
       }}
-      navigation={true}
       modules={[Autoplay, Pagination]}
     >
       {isLoadiing &&
         Mdata.map((item) => {
           return (
             <SwiperSlide>
-              <MovieCards props={item} key={item.id} />
+              <MovieCardsWide props={item} key={item.id} />
             </SwiperSlide>
           );
         })}

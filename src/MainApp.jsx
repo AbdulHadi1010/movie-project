@@ -4,9 +4,10 @@ import MainPageNavigation from "./MainPageNavigation";
 import MainPagePagination from "./MainPagePagination";
 import MainPageAutoPlay from "./MainPageAutoPlay";
 import "./MainApp.css";
-import { Navigation } from "swiper/modules";
 
 export default function MainApp() {
+  // let navbar = ["Home", Discover, Trending, Movies, TV Shows]
+
   return (
     <div>
       <div className="max-w-screen overflow-x-hidden">
@@ -36,15 +37,16 @@ export default function MainApp() {
         </div>
         <img src={wallpaper} />
       </div>
-      <div className="top-3/4 absolute w-full bg-[#242424]">
-        <div className="text-white text-3xl py-2 px-8 font-bold text-start">
+      
+      <div className="top-3/4 absolute w-full bg-[#242424]" id="SecondGradient"  >
+        <div className="text-white text-3xl py-2 pt-32 px-8 font-bold text-start">
           Top Rated
         </div>
         <MainPageAutoPlay
           apilink={"https://api.themoviedb.org/3/movie/top_rated"}
         />
         <div className="text-white text-3xl py-2 px-8 font-bold text-start">
-          Just Release
+          Just Released
         </div>
         <MainPageNavigation
           apilink={"https://api.themoviedb.org/3/discover/movie"}
@@ -57,6 +59,7 @@ export default function MainApp() {
           props={"https://api.themoviedb.org/3/movie/upcoming"}
         />
       </div>
+      
     </div>
   );
 }
