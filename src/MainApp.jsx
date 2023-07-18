@@ -59,7 +59,7 @@ export default function MainApp() {
           <div className="text-white text-3xl py-2 px-4 font-bold text-start">
             Just Release
           </div>
-          <MainPage />
+          <MainPage props={"https://api.themoviedb.org/3/discover/movie"} />
         </div>
         <button className="px-4" onClick={() => slide(+150)}>
           ➡️
