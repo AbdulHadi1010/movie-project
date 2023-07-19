@@ -4,14 +4,16 @@ import MainPageNavigation from "./MainPageNavigation";
 import MainPagePagination from "./MainPagePagination";
 import MainPageAutoPlay from "./MainPageAutoPlay";
 import "./MainApp.css";
+import FrontAutoPlay from "./FrontAutoPlay";
+import MovieCardWideLong from "./components/MovieCardWideLong";
 
 export default function MainApp() {
   // let navbar = ["Home", Discover, Trending, Movies, TV Shows]
 
   return (
-    <div>
+    <div >
       <div className="max-w-screen overflow-x-hidden">
-        <div className="w-full flex p-6 absolute" id="Linear-Gradient">
+        <div className="w-full absolute z-10	flex p-6 " id="Linear-Gradient">
           <text className="text-white text-2xl px-8 font-semibold">
             Website Name
           </text>
@@ -35,10 +37,12 @@ export default function MainApp() {
             </div>
           </div>
         </div>
-        <img src={wallpaper} />
+        <FrontAutoPlay
+          apilink={"https://api.themoviedb.org/3/movie/now_playing"}
+        />
       </div>
       
-      <div className="top-3/4 absolute w-full bg-[#242424]" id="SecondGradient"  >
+      <div className="top-3/4 absolute  z-10 w-full bg-[#242424]" id="SecondGradient"  >
         <div className="text-white text-3xl py-2 pt-32 px-8 font-bold text-start">
           Top Rated
         </div>
@@ -58,6 +62,7 @@ export default function MainApp() {
         <MainPagePagination
           props={"https://api.themoviedb.org/3/movie/upcoming"}
         />
+        <MovieCardWideLong/>
       </div>
       
     </div>
