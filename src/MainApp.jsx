@@ -63,6 +63,15 @@ export default function MainApp() {
           props={"https://api.themoviedb.org/3/movie/upcoming"}
         />
         <MovieCardWideLong/>
+        <div className="flex border-t-2 m-0 ">
+        <div className=" text-4xl justify-center">
+        <div className="py-8 w-1/3 pl-4 text-justify">Our Platfrom is Trusted by Millions & Features Best Updated Movies all around the World.</div>
+        <div className="flex space-x-12    text-base	 w-1/2 justify-center pb-4">
+      <div>Privacy Policy</div> <div>Terms of Service</div> <div>Language</div>
+    </div>
+    </div>
+    {/* <div className="pr-32  text-xl">Home / Discover / Influence / Relase   </div> */}
+      </div>
       </div>
       
     </div>

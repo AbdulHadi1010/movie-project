@@ -7,6 +7,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 import { Autoplay, Pagination } from "swiper/modules";
+
 import MainMovieCards from "./components/MainMovieCards";
 
 export default function FrontAutoPlay(props) {
