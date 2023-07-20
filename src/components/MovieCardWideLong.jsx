@@ -1,12 +1,15 @@
 import React from "react";
 import starImg from "../assets/star-image.png";
 import { Swiper } from "swiper/react";
+import "swiper/css/effect-coverflow";
+
 import { SwiperSlide } from "swiper/react";
 
 import "swiper/css";
 import "swiper/css/navigation";
+import "swiper/css/effect-coverflow";
 
-import { Autoplay, Pagination } from "swiper/modules";
+import { Autoplay, Pagination, EffectCoverflow } from "swiper/modules";
 export default function MovieCardWideLong() {
   const ImgLink = `https://image.tmdb.org/t/p/original`;
   const data = [
@@ -81,7 +84,17 @@ export default function MovieCardWideLong() {
   ];
   return (
     <Swiper
-      slidesPerView={1}
+      slidesPerView={"auto"}
+      effect={"coverflow"}
+      grabCursor={true}
+      centeredSlides={true}
+      // coverflowEffect={
+      //   {
+      //     // rotate: 50,
+      //     // stretch: 0,
+      //     // depth: 100,
+      //   }
+      // }
       autoplay={{
         delay: 5000,
         disableOnInteraction: false,
@@ -89,29 +102,31 @@ export default function MovieCardWideLong() {
       pagination={{
         clickable: true,
       }}
-      modules={[Autoplay, Pagination]}
+      modules={[Pagination, EffectCoverflow, Autoplay]}
+      className="bg-black"
     >
+      <div className="font-bold absolute z-10 text-4xl text-left pl-2 top-8">
+        Featured By Website
+      </div>
       {data.map((item) => {
         return (
-          <SwiperSlide>
-            <div className="w-full relative rounded ">
-              <div className="opacity-30">
+          <SwiperSlide className="w-full p-32 relative rounded	">
+            <div>
+              <div className="opacity-70 block">
                 <img
                   src={ImgLink + item.backdrop_path}
                   alt="Poster"
                   className="rounded"
                 />
               </div>
-              <div className="font-bold absolute text-4xl text-left py-4 pl-2 top-16">
-                Featured By Website
-              </div>
+
               <div className="font-bold absolute text-4xl text-left py-4 pl-2 top-1/2">
                 {item.title}
                 <div className="font-semibold text-lg w-1/2 pt-4">
                   {item.overview}
                 </div>
               </div>
-              <div className="absolute w-1/4 top-1/4 right-32">
+              <div className="absolute w-1/5 top-1/4 left-2/3">
                 <img
                   src={ImgLink + item.poster_path}
                   alt="Poster"

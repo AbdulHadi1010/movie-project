@@ -6,10 +6,14 @@ export default function MainMovieCards({ props }) {
       <img
         src={ImgLink + props.backdrop_path}
         alt="Poster"
-        className="rounded "    
+        className="rounded "
       />
-      <div className="font-bold absolute text-3xl text-left pt-16 py-4 pl-2 top-1/3">{props.title}
-      <div className="font-semibold text-lg pt-4 w-1/2 text-justify">{props.overview}</div></div>
+      <div className="font-bold absolute text-3xl text-left pt-16 py-4 pl-2 top-1/2">
+        {props.title}
+        <div className="font-semibold text-lg pt-4 w-1/2 text-justify">
+          {props.overview}
+        </div>
+      </div>
     </div>
   );
 }
