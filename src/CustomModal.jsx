@@ -13,6 +13,7 @@ const style = {
   left: "50%",
   transform: "translate(-50%, -50%)",
   bgcolor: "#242424",
+  border: "2px solid #fff",
   boxShadow: 24,
   display: "flex",
   p: 4,
@@ -43,14 +44,33 @@ export default function CustomModal(props) {
             className="rounded-3xl float-left p-4 w-1/2"
           />
           <div className=" ">
-            <Typography id="transition-modal-title" variant="h6" component="h5">
-              <div className="text-3xl my-10 border-b-2 ">
-                {props?.data?.title || props?.data?.name}
-              </div>
+            <Typography
+              id="transition-modal-title"
+              variant="h6"
+              component={"span"}
+              sx={{
+                fontSize: "1.875rem",
+                marginTop: "2.5rem",
+                marginBottom: "0.125rem",
+                borderBottomWidth: 2,
+              }}
+            >
+              {props?.data?.title || props?.data?.name}
             </Typography>
-            <Typography id="transition-modal-description">
-              <div className="text-xl mt-10">Description: </div>
-              <div className="text-xl mt-5">{props?.data?.overview}</div>
+            <Typography
+              id="transition-modal-description"
+              component={"p"}
+              sx={{ fontSize: "1.875rem", marginTop: "2.5rem" }}
+            >
+              Description:
+            </Typography>
+
+            <Typography
+              id="transition-modal-description"
+              component={"p"}
+              sx={{ fontSize: "1rem", marginTop: "2.5rem" }}
+            >
+              {props?.data?.overview}
             </Typography>
             <Button
               onClick={props?.myClose}
@@ -60,6 +80,7 @@ export default function CustomModal(props) {
                 right: "8px",
                 cursor: "pointer",
                 background: "transparent",
+                border: "2px solid #808080",
                 fontSize: "1rem",
               }}
             >

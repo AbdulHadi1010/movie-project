@@ -5,9 +5,8 @@ import MainPageAutoPlay from "./MainPageAutoPlay";
 import "./MainApp.css";
 import FrontAutoPlay from "./FrontAutoPlay";
 import MovieCardWideLong from "./components/MovieCardWideLong";
-import logo from "./assets/Website.png";
 
-export default function MainApp() {
+export default function Home() {
   return (
     <div>
       <FrontAutoPlay
