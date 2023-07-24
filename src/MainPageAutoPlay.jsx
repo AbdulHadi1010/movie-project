@@ -51,8 +51,8 @@ export default function MainPageAutoPlay(props) {
       {isLoadiing &&
         Mdata.map((item) => {
           return (
-            <SwiperSlide>
-              <MovieCardsWide props={item} key={item.id} />
+            <SwiperSlide key={item.id}>
+              <MovieCardsWide props={item} />
             </SwiperSlide>
           );
         })}

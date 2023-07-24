@@ -37,16 +37,12 @@ export default function MainPageNavigation(props) {
     fetchData();
   }, []);
   return (
-    <Swiper
-      slidesPerView={5}
-      navigation={true}
-      modules={[Navigation]}
-    >
+    <Swiper slidesPerView={5} navigation={true} modules={[Navigation]}>
       {isLoadiing &&
         Mdata.map((item) => {
           return (
-            <SwiperSlide >
-              <MovieCardsLong props={item} key={item.id} />
+            <SwiperSlide key={item.id}>
+              <MovieCardsLong props={item} />
             </SwiperSlide>
           );
         })}

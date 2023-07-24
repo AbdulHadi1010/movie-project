@@ -7,7 +7,7 @@ import { SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 
-import {Autoplay, Pagination } from "swiper/modules";
+import { Autoplay, Pagination } from "swiper/modules";
 
 export default function MainPagePagination(props) {
   const [Mdata, setMdata] = useState(null);
@@ -52,8 +52,8 @@ export default function MainPagePagination(props) {
       {isLoadiing &&
         Mdata.map((item) => {
           return (
-            <SwiperSlide>
-              <MovieCardsWide props={item} key={item.id} />
+            <SwiperSlide key={item.id}>
+              <MovieCardsWide props={item} />
             </SwiperSlide>
           );
         })}

@@ -13,7 +13,9 @@ export default function MovieCardsLong({ props }) {
         className="rounded "
         onClick={handleOpen}
       />
-      <div className="font-bold text-xl text-left py-4 pl-2">{props.title}</div>
+      <div className="font-bold text-xl text-left py-4 pl-2">
+        {props.title || props.name}
+      </div>
       <div className="flex pl-2">
         <div className="w-4 pt-0.5 ">
           <img src={starImg} />

@@ -45,7 +45,7 @@ export default function CustomModal(props) {
           <div className=" ">
             <Typography id="transition-modal-title" variant="h6" component="h5">
               <div className="text-3xl my-10 border-b-2 ">
-                {props?.data?.title}
+                {props?.data?.title || props?.data?.name}
               </div>
             </Typography>
             <Typography id="transition-modal-description">
