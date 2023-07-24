@@ -41,7 +41,7 @@ export default function FrontAutoPlay(props) {
     <Swiper
       slidesPerView={1}
       autoplay={{
-        delay: 5000 ,
+        delay: 5000,
         disableOnInteraction: false,
       }}
       pagination={{
@@ -50,7 +50,7 @@ export default function FrontAutoPlay(props) {
       modules={[Autoplay, Pagination]}
     >
       {isLoadiing &&
-        Mdata.map((item) => {
+        Mdata.map((item, index) => {
           return (
             <SwiperSlide>
               <MainMovieCards props={item} key={item.id} />

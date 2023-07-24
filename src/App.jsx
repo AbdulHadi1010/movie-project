@@ -3,7 +3,7 @@ import React from "react";
 import MainApp from "./MainApp";
 function App() {
   return (
-    <div className="">
+    <div className="overflow-hidden">
       <MainApp />
     </div>
   );

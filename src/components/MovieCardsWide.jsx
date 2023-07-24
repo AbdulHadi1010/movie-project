@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
+
 import starImg from "../assets/star-image.png";
+import CustomModal from "../CustomModal";
+
 export default function MovieCardsWide({ props }) {
   const ImgLink = `https://image.tmdb.org/t/p/original`;
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+
   return (
     <div className="p-8 rounded hover:cursor-pointer shrink-0">
       <img
         src={ImgLink + props.backdrop_path}
         alt="Poster"
         className="rounded"
+        onClick={handleOpen}
       />
       <div className="font-bold text-xl text-left py-4 pl-2">{props.title}</div>
       <div className="flex pl-2">
@@ -21,6 +28,7 @@ export default function MovieCardsWide({ props }) {
           <span>)</span>
         </div>
       </div>
+      <CustomModal myClose={() => setOpen(false)} myOpen={open} data={props} />
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 import MainPageNavigation from "./MainPageNavigation";
 import MainPagePagination from "./MainPagePagination";
 import MainPageAutoPlay from "./MainPageAutoPlay";
@@ -7,32 +7,28 @@ import FrontAutoPlay from "./FrontAutoPlay";
 import MovieCardWideLong from "./components/MovieCardWideLong";
 
 export default function MainApp() {
-  // let navbar = ["Home", Discover, Trending, Movies, TV Shows]
-
   return (
-    <div>
+    <div className="overflow-y-hidden">
       <div className="max-w-screen overflow-x-hidden">
         <div className="w-full absolute z-10	flex p-6 " id="Linear-Gradient">
-          <text className="text-white text-2xl px-8 font-semibold">
+          <div className="text-white text-2xl px-8 font-semibold">
             Website Name
-          </text>
+          </div>
           <div className="m-auto flex flex-1 max-w-full justify-end">
             <div className="flex justify-between">
-              <text className="text-white text-2xl px-8 font-semibold">
-                Home
-              </text>
-              <text className="text-white text-2xl px-8 font-semibold">
+              <div className="text-white text-2xl px-8 font-semibold">Home</div>
+              <div className="text-white text-2xl px-8 font-semibold">
                 Discover
-              </text>
-              <text className="text-white text-2xl px-8 font-semibold">
+              </div>
+              <div className="text-white text-2xl px-8 font-semibold">
                 Trending
-              </text>
-              <text className="text-white text-2xl px-8 font-semibold">
+              </div>
+              <div className="text-white text-2xl px-8 font-semibold">
                 Movies
-              </text>
-              <text className="text-white text-2xl px-8 font-semibold">
+              </div>
+              <div className="text-white text-2xl px-8 font-semibold">
                 TV Shows
-              </text>
+              </div>
             </div>
           </div>
         </div>
@@ -42,7 +38,7 @@ export default function MainApp() {
       </div>
 
       <div
-        className="top-3/4 absolute  z-10 w-full bg-[#242424]"
+        className="top-3/4 absolute  z-10 w-full bg-[#242424] overflow-y-hidden"
         id="SecondGradient"
       >
         <div className="text-white text-3xl py-2 pt-32 px-8 font-bold text-start">

@@ -88,13 +88,6 @@ export default function MovieCardWideLong() {
       effect={"coverflow"}
       grabCursor={true}
       centeredSlides={true}
-      // coverflowEffect={
-      //   {
-      //     // rotate: 50,
-      //     // stretch: 0,
-      //     // depth: 100,
-      //   }
-      // }
       autoplay={{
         delay: 5000,
         disableOnInteraction: false,
@@ -108,9 +101,9 @@ export default function MovieCardWideLong() {
       <div className="font-bold absolute z-10 text-4xl text-left pl-2 top-8">
         Featured By Website
       </div>
-      {data.map((item) => {
+      {data.map((item, index) => {
         return (
-          <SwiperSlide className="w-full p-32 relative rounded	">
+          <SwiperSlide className="w-full p-32 relative rounded	" key={item.id}>
             <div>
               <div className="opacity-70 block">
                 <img
