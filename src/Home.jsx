@@ -2,10 +2,8 @@ import React from "react";
 import MainPageNavigation from "./MainPageNavigation";
 import MainPagePagination from "./MainPagePagination";
 import MainPageAutoPlay from "./MainPageAutoPlay";
-import "./MainApp.css";
 import FrontAutoPlay from "./FrontAutoPlay";
 import MovieCardWideLong from "./components/MovieCardWideLong";
-import logo from "./assets/Website.png";
 
 export default function MainApp() {
   return (
@@ -13,11 +11,8 @@ export default function MainApp() {
       <FrontAutoPlay
         apilink={"https://api.themoviedb.org/3/movie/now_playing"}
       />
-      <div
-        className="top-3/4 absolute  z-10 w-full bg-[#242424]"
-        id="SecondGradient"
-      >
-        <div className="text-white text-4xl pt-32 px-6 font-bold text-start">
+      <div className="z-10 w-full  bg-[#242424]">
+        <div className="text-white text-4xl pt-16 px-6 font-bold text-start">
           Top Rated
         </div>
         <div className="text-white text-3xl pt-16 px-8 font-bold text-start">
@@ -60,24 +55,6 @@ export default function MainApp() {
           apilink={"https://api.themoviedb.org/3/trending/tv/week"}
         />
         <MovieCardWideLong />
-
-        <div className="flex border-t-4">
-          <div className=" text-4xl w-1/2 justify-center">
-            <div className="py-8 pl-16  text-justify">
-              <div className="w-1/2">
-                Our Platfrom is Trusted by Millions & Features Best Updated
-                Movies all around the World.
-              </div>
-            </div>
-            <div className="flex space-x-12 text-base justify-center pb-4">
-              <div>Privacy Policy</div> <div>Terms of Service</div>
-              <div>Language</div>
-            </div>
-          </div>
-          <div className="text-2xl py-8 w-1/2 font-semibold text-zinc-400	self-center">
-            Home / Discover / Influence / Release
-          </div>
-        </div>
       </div>
     </div>
   );

@@ -52,8 +52,8 @@ export default function FrontAutoPlay(props) {
       {isLoadiing &&
         Mdata.map((item, index) => {
           return (
-            <SwiperSlide>
-              <MainMovieCards props={item} key={item.id} />
+            <SwiperSlide key={item.id}>
+              <MainMovieCards props={item} />
             </SwiperSlide>
           );
         })}
