@@ -1,7 +1,7 @@
 import React from "react";
-import MainPageNavigation from "./MainPageNavigation";
-import MainPagePagination from "./MainPagePagination";
-import MainPageAutoPlay from "./MainPageAutoPlay";
+import MainPageNavigation from "../CustomPlayers/MainPageNavigation";
+import MainPagePagination from "../CustomPlayers/MainPagePagination";
+import MainPageAutoPlay from "../CustomPlayers/MainPageAutoPlay";
 export default function MoviePage() {
   return (
     <div>

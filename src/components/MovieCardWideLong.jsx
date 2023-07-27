@@ -99,7 +99,7 @@ export default function MovieCardWideLong() {
       className="bg-black"
     >
       <div className="font-bold absolute z-10 text-4xl text-left pl-2 top-8">
-        Featured By Website
+        Featured By CineFlicks
       </div>
       {data.map((item, index) => {
         return (

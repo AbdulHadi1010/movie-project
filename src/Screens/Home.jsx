@@ -1,11 +1,11 @@
 import React from "react";
-import MainPageNavigation from "./MainPageNavigation";
-import MainPagePagination from "./MainPagePagination";
-import MainPageAutoPlay from "./MainPageAutoPlay";
-import FrontAutoPlay from "./FrontAutoPlay";
-import MovieCardWideLong from "./components/MovieCardWideLong";
+import MainPageNavigation from "../CustomPlayers/MainPageNavigation";
+import MainPagePagination from "../CustomPlayers/MainPagePagination";
+import MainPageAutoPlay from "../CustomPlayers/MainPageAutoPlay";
+import FrontAutoPlay from "../CustomPlayers/FrontAutoPlay";
+import MovieCardWideLong from "../components/MovieCardWideLong";
 
-export default function MainApp() {
+export default function Home() {
   return (
     <div>
       <FrontAutoPlay

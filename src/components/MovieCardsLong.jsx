@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import starImg from "../assets/star-image.png";
-import CustomModal from "../CustomModal";
+import CustomModal from "./CustomModal";
 export default function MovieCardsLong({ props }) {
   const ImgLink = `https://image.tmdb.org/t/p/original`;
   const [open, setOpen] = useState(false);
