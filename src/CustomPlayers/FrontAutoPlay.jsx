@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef } from "react";
-import MovieCardsWide from "./components/MovieCardsWide";
 import axios from "axios";
 import { Swiper } from "swiper/react";
 import { SwiperSlide } from "swiper/react";
@@ -9,16 +8,17 @@ import "swiper/css/navigation";
 
 import { Autoplay, Pagination } from "swiper/modules";
 
-export default function MainPagePagination(props) {
+import MainMovieCards from "../components/MainMovieCards";
+
+export default function FrontAutoPlay(props) {
   const [Mdata, setMdata] = useState(null);
   const [isLoadiing, setisLoadiing] = useState(false);
-
   useEffect(() => {
     async function fetchData() {
       let config = {
         method: "get",
         maxBodyLength: Infinity,
-        url: `${props.props}?api_key=f2b8ce4dc465e56d96500a4e519cc3a7`,
+        url: `${props.apilink}?api_key=f2b8ce4dc465e56d96500a4e519cc3a7`,
         headers: {},
       };
 
@@ -27,7 +27,9 @@ export default function MainPagePagination(props) {
         .then((response) => {
           // console.log(JSON.stringify(response.data));
           setMdata(response.data.results);
-          setisLoadiing(true);
+          setTimeout(() => {
+            setisLoadiing(true);
+          }, 5000);
         })
         .catch((error) => {
           console.log(error);
@@ -39,9 +41,9 @@ export default function MainPagePagination(props) {
 
   return (
     <Swiper
-      slidesPerView={4}
+      slidesPerView={1}
       autoplay={{
-        delay: 2000,
+        delay: 5000,
         disableOnInteraction: false,
       }}
       pagination={{
@@ -50,10 +52,10 @@ export default function MainPagePagination(props) {
       modules={[Autoplay, Pagination]}
     >
       {isLoadiing &&
-        Mdata.map((item) => {
+        Mdata.map((item, index) => {
           return (
             <SwiperSlide key={item.id}>
-              <MovieCardsWide props={item} />
+              <MainMovieCards props={item} />
             </SwiperSlide>
           );
         })}
