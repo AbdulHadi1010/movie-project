@@ -14,7 +14,7 @@ export default function MovieCardsLong({ props }) {
     return () => window.removeEventListener("resize", handleWindowResize);
   }, []);
   return (
-    <div className="p-8 justify-center  items-center w-full rounded hover:cursor-pointer">
+    <div className="p-2 md:p-4 lg:p-8 justify-center  items-center w-full rounded hover:cursor-pointer">
       <img
         src={ImgLink + props.poster_path}
         alt="Poster"

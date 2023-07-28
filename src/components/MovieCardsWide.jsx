@@ -16,7 +16,7 @@ export default function MovieCardsWide({ props }) {
     return () => window.removeEventListener("resize", handleWindowResize);
   }, []);
   return (
-    <div className="p-8 rounded hover:cursor-pointer shrink-0">
+    <div className="p-2 md:p-4 lg:p-8 rounded hover:cursor-pointer shrink-0">
       <img
         src={ImgLink + props.backdrop_path}
         alt="Poster"
