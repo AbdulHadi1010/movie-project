@@ -14,6 +14,8 @@ import MovieCardsLong from "../components/MovieCardsLong";
 export default function MainPageNavigation(props) {
   const [Mdata, setMdata] = useState(null);
   const [isLoadiing, setisLoadiing] = useState(false);
+  const [width, setWidth] = useState(window.innerWidth);
+  const breakPoint = 900;
   useEffect(() => {
     async function fetchData() {
       let config = {
@@ -38,9 +40,17 @@ export default function MainPageNavigation(props) {
     }
 
     fetchData();
+    const handleWindowResize = () => setWidth(window.innerWidth);
+    window.addEventListener("resize", handleWindowResize);
+
+    return () => window.removeEventListener("resize", handleWindowResize);
   }, []);
   return (
-    <Swiper slidesPerView={5} navigation={true} modules={[Navigation]}>
+    <Swiper
+      slidesPerView={width < breakPoint ? 3 : 5}
+      navigation={true}
+      modules={[Navigation]}
+    >
       <div className="flex w-full">
         {isLoadiing
           ? Mdata.map((item) => {
@@ -50,8 +60,8 @@ export default function MainPageNavigation(props) {
                 </SwiperSlide>
               );
             })
-          : Array.from(new Array(5)).map((i) => (
-              <div className="w-full">
+          : Array.from(new Array(5)).map((index) => (
+              <div className="w-full" key={index}>
                 <Skeleton
                   animation="wave"
                   variant="rectangular"
@@ -61,7 +71,6 @@ export default function MainPageNavigation(props) {
                     bgcolor: "grey.700",
                     m: "1rem",
                   }}
-                  key={i}
                 />
                 <Skeleton
                   animation="wave"

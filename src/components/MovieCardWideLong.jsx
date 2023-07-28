@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import starImg from "../assets/star-image.png";
 import { Swiper } from "swiper/react";
 import "swiper/css/effect-coverflow";
@@ -12,6 +12,14 @@ import "swiper/css/effect-coverflow";
 import { Autoplay, Pagination, EffectCoverflow } from "swiper/modules";
 export default function MovieCardWideLong() {
   const ImgLink = `https://image.tmdb.org/t/p/original`;
+  const [width, setWidth] = useState(window.innerWidth);
+  const breakPoint = 900;
+  useEffect(() => {
+    const handleWindowResize = () => setWidth(window.innerWidth);
+    window.addEventListener("resize", handleWindowResize);
+
+    return () => window.removeEventListener("resize", handleWindowResize);
+  }, []);
   const data = [
     {
       adult: false,
@@ -98,12 +106,15 @@ export default function MovieCardWideLong() {
       modules={[Pagination, EffectCoverflow, Autoplay]}
       className="bg-black"
     >
-      <div className="font-bold absolute z-10 text-4xl text-left pl-2 top-8">
+      <div className="font-bold absolute z-10 text-lg md:text-2xl lg:text-3xl text-left pl-2 top-2 md:top-4 lg:top-8">
         Featured By CineFlicks
       </div>
-      {data.map((item, index) => {
+      {data.map((item) => {
         return (
-          <SwiperSlide className="w-full p-32 relative rounded	" key={item.id}>
+          <SwiperSlide
+            className="w-full p-8 md:p-16 lg:p-32 relative rounded	"
+            key={item.id}
+          >
             <div>
               <div className="opacity-70 block">
                 <img
@@ -113,11 +124,15 @@ export default function MovieCardWideLong() {
                 />
               </div>
 
-              <div className="font-bold absolute text-4xl text-left py-4 pl-2 top-1/2">
+              <div className="font-bold absolute text-xl md:text-2xl lg:text-3xl text-left py-4 pl-2 top-1/2">
                 {item.title}
-                <div className="font-semibold text-lg w-1/2 pt-4">
-                  {item.overview}
-                </div>
+                {width > breakPoint ? (
+                  <div className="font-semibold text-lg md:text-xl lg:text-2xl w-1/2 pt-4">
+                    {item.overview}
+                  </div>
+                ) : (
+                  <div></div>
+                )}
               </div>
               <div className="absolute w-1/5 top-1/4 left-2/3">
                 <img

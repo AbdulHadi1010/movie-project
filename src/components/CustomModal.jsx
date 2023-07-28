@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
@@ -17,11 +17,19 @@ const style = {
   boxShadow: 24,
   display: "flex",
   p: 4,
+  maxWidth: "50%",
 };
 
 export default function CustomModal(props) {
   const ImgLink = `https://image.tmdb.org/t/p/original`;
+  const [width, setWidth] = useState(window.innerWidth);
+  const breakPoint = 1000;
+  useEffect(() => {
+    const handleWindowResize = () => setWidth(window.innerWidth);
+    window.addEventListener("resize", handleWindowResize);
 
+    return () => window.removeEventListener("resize", handleWindowResize);
+  }, []);
   return (
     <Modal
       aria-labelledby="transition-modal-title"
@@ -38,39 +46,24 @@ export default function CustomModal(props) {
     >
       <Fade in={props?.myOpen}>
         <Box sx={style}>
-          <img
-            src={ImgLink + props?.data?.poster_path}
-            alt="Poster"
-            className="rounded-3xl float-left p-4 w-1/2"
-          />
+          {width > breakPoint ? (
+            <img
+              src={ImgLink + props?.data?.poster_path}
+              alt="Poster"
+              className="rounded-xl float-left p-4 w-1/2"
+            />
+          ) : (
+            <div></div>
+          )}
           <div className=" ">
-            <Typography
-              id="transition-modal-title"
-              variant="h6"
-              component={"span"}
-              sx={{
-                fontSize: "1.875rem",
-                marginTop: "2.5rem",
-                marginBottom: "0.125rem",
-                borderBottomWidth: 2,
-              }}
-            >
-              {props?.data?.title || props?.data?.name}
+            <Typography id="transition-modal-title" variant="h6" component="h5">
+              <div className="text-xl md:text-2xl lg:text-3xl my-2 md:my-5 border-b-2 ">
+                {props?.data?.title || props?.data?.name}
+              </div>
             </Typography>
-            <Typography
-              id="transition-modal-description"
-              component={"p"}
-              sx={{ fontSize: "1.875rem", marginTop: "2.5rem" }}
-            >
-              Description:
-            </Typography>
-
-            <Typography
-              id="transition-modal-description"
-              component={"p"}
-              sx={{ fontSize: "1rem", marginTop: "2.5rem" }}
-            >
-              {props?.data?.overview}
+            <Typography id="transition-modal-description">
+              <div className="text-xl mt-10">Description: </div>
+              <div className="text-xl mt-5">{props?.data?.overview}</div>
             </Typography>
             <Button
               onClick={props?.myClose}
