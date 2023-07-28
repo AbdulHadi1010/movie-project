@@ -17,7 +17,9 @@ const style = {
   boxShadow: 24,
   display: "flex",
   p: 4,
-  maxWidth: "50%",
+  minWidth: "70%",
+  maxHeight: "50%",
+  // overflow: "auto",
 };
 
 export default function CustomModal(props) {
@@ -55,7 +57,7 @@ export default function CustomModal(props) {
           ) : (
             <div></div>
           )}
-          <div className=" ">
+          <div className="overflow-y-auto">
             <Typography id="transition-modal-title" variant="h6" component="h5">
               <div className="text-xl md:text-2xl lg:text-3xl my-2 md:my-5 border-b-2 ">
                 {props?.data?.title || props?.data?.name}
@@ -63,23 +65,23 @@ export default function CustomModal(props) {
             </Typography>
             <Typography id="transition-modal-description">
               <div className="text-xl mt-10">Description: </div>
-              <div className="text-xl mt-5">{props?.data?.overview}</div>
+              <div className="text-xl mt-5 ">{props?.data?.overview}</div>
             </Typography>
-            <Button
-              onClick={props?.myClose}
-              sx={{
-                position: "absolute",
-                bottom: "8px",
-                right: "8px",
-                cursor: "pointer",
-                background: "transparent",
-                border: "2px solid #808080",
-                fontSize: "1rem",
-              }}
-            >
-              Close
-            </Button>
           </div>
+          <Button
+            onClick={props?.myClose}
+            sx={{
+              position: "absolute",
+              bottom: "8px",
+              right: "8px",
+              cursor: "pointer",
+              background: "transparent",
+              border: "2px solid #808080",
+              fontSize: "1rem",
+            }}
+          >
+            Close
+          </Button>
         </Box>
       </Fade>
     </Modal>
