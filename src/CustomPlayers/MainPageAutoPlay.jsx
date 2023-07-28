@@ -13,6 +13,8 @@ import { Autoplay, Pagination } from "swiper/modules";
 export default function MainPageAutoPlay(props) {
   const [Mdata, setMdata] = useState(null);
   const [isLoadiing, setisLoadiing] = useState(false);
+  const [width, setWidth] = useState(window.innerWidth);
+  const breakPoint = 900;
   useEffect(() => {
     async function fetchData() {
       let config = {
@@ -35,13 +37,17 @@ export default function MainPageAutoPlay(props) {
           console.log(error);
         });
     }
-
     fetchData();
+
+    const handleWindowResize = () => setWidth(window.innerWidth);
+    window.addEventListener("resize", handleWindowResize);
+
+    return () => window.removeEventListener("resize", handleWindowResize);
   }, []);
 
   return (
     <Swiper
-      slidesPerView={4}
+      slidesPerView={width < breakPoint ? 2 : 4}
       autoplay={{
         delay: 2500,
         disableOnInteraction: false,
@@ -60,8 +66,8 @@ export default function MainPageAutoPlay(props) {
                 </SwiperSlide>
               );
             })
-          : Array.from(new Array(5)).map((i) => (
-              <div className="w-full">
+          : Array.from(new Array(5)).map((index) => (
+              <div className="w-full" key={index}>
                 <Skeleton
                   animation="wave"
                   variant="rectangular"
@@ -71,7 +77,6 @@ export default function MainPageAutoPlay(props) {
                     bgcolor: "grey.700",
                     m: "1rem",
                   }}
-                  key={i}
                 />
                 <Skeleton
                   animation="wave"
